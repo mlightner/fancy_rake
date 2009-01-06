@@ -16,7 +16,8 @@ module FancyRake
     end
 
     def run_subtask_for_prefix(prefix, arg)
-      raise "No valid subtask found for function #{prefix.to_s}" unless subtask = self.map[prefix.to_s]
+      #raise "No valid subtask found for function #{prefix.to_s}" unless subtask = self.map[prefix.to_s]
+      return false unless subtask = self.map[prefix.to_s]
       raise "Subtask not found." unless File.exist?("#{subtask_dir}/#{subtask}.rb")
       $arg = arg
       puts "Running #{subtask_dir}/#{subtask}.rb"
